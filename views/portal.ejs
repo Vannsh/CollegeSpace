@@ -1,0 +1,87 @@
+<%- include("partials/userNav") -%>
+    <%- include("partials/herdr") -%>
+
+
+        <header id="main-header" style="background-color: #1d2d50;" class="py-2 text-white">
+            <div style="text-align: center;">
+                <h1><i class="fas fa-sticky-note"></i> Dashboard</h1>
+            </div>
+        </header>
+
+        <section id="home" class="mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <img src="uploads/<%=printData.imagename%>" class="portalImg  p-1" alt="...">
+                            <div class="card-body">
+                                <h3 class="details">
+                                    <%=printData.name%>
+                                        <%=printData.lname%>
+                                </h3>
+                                <!-- <p style="  text-align: center;    font-family: 'Poppins', sans-serif;">Email : <%=printData.username%></p> -->
+                                <p class="details">3rd</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h4>Recent Activities</h4>
+                            </div>
+                            <table class="table table-striped">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>Question Asked</th>
+                                        <th>Date</th>
+                                    </tr>
+
+                                    <% if(printData.questionAsked!==undefined){ %>
+                                        <% for(var i=0; i<printData.questionAsked.length; i++){ %>
+                                            <tr>
+                                                <td>
+                                                    <%= printData.questionAsked[i].Question %>
+                                                </td>
+                                                <td>
+                                                    <%= printData.questionAsked[i].Time %>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                                <% } %>
+
+
+
+
+                                </thead>
+
+                            </table>
+                            <p class="addingClick">Want to ask a Question?
+                                <a class="addingReview" href="askingQus"> <i class="fas fa-edit fa-2x"></i> </a>
+                            </p>
+
+                            <table class="table table-striped">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>Question Answered</th>
+                                        <!-- <th>Category</th> -->
+                                        <th>Date</th>
+                                    </tr>
+
+                                </thead>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <%- include("partials/footer") -%>
